@@ -14,7 +14,8 @@ func main() {
 	r := gin.Default()
 	models.ConnectDatabase()
 
-	r.GET("/api/items", itemsController.Index)
+	r.GET("/api/items", itemsController.Index)   // Show all data
+	r.GET("/api/item/:id", itemsController.Show) // Retrieve single data
 	r.POST("/api/item", itemsController.Create)
 	r.PUT("/api/item/:id", itemsController.Update)
 	r.DELETE("/api/item", itemsController.Delete)
@@ -43,7 +44,5 @@ func main() {
 
 	// fmt.Println("Response status:", response.Status)
 	// fmt.Println("Response body:", string(body))
-
-
 
 }
